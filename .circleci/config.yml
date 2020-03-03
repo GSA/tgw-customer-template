@@ -1,0 +1,79 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.16
+
+commands:
+
+  setup-environment-vars: 
+    description: "Setup environment variables."
+    steps:
+      - run:
+          name: Export required environment variables.
+          command: |    
+ 
+
+            #Create the environment variable file that persists between jobs.
+            #Access these variables by doing a `. ${BASH_ENV}` 
+            cat \<<EOF >> $BASH_ENV
+            export TEST=test
+            EOF
+  
+  cloudformation:
+    description: "Run Cloudformation commands"
+    parameters:
+      cf_command:
+        type: string
+        default: "deploy"
+      stack_name:
+        type: string
+        default: " "
+      template_path:
+        type: string
+      parameter_overrides:
+        type: string
+        default: " "
+      tags:
+        type: string
+        default: " "
+    steps:
+      - run:
+          name: Execute CloudFormations Commands
+          command: |   
+
+            echo "Validating template..."
+            aws cloudformation validate-template \
+            --template-body file://<< parameters.template_path >> 
+
+            if [ "<< parameters.cf_command >>" == "deploy" ]
+            then
+
+              aws cloudformation deploy \
+              --template << parameters.template_path >> \
+              --stack-name << parameters.stack_name >> \
+              --parameter-overrides << parameters.parameter_overrides >> \
+              --tags << parameters.tags >> \
+              --no-fail-on-empty-changeset \
+              --capabilities CAPABILITY_NAMED_IAM
+            fi
+
+jobs:  
+
+  cloudformation-validate:
+    executor: aws-cli/default
+    steps: 
+      - checkout
+      - setup-environment-vars      
+      - cloudformation:
+          cf_command: "validate"
+          template_path: cloudformation/aws-transit-network-orchestrator-spoke.template
+
+#These are the workflows that define what CircleCI actually does.
+workflows:
+  version: 2.1
+  build_and_deploy:    
+    jobs:      
+      - cloudformation-validate:
+          filters:
+            tags:
+              only: /.*/     
