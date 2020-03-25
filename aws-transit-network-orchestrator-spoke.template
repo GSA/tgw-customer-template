@@ -105,7 +105,7 @@ Resources:
           - Effect: Allow
             Principal:
               AWS:
-                - !Join ['', ['arn:aws:iam::', !Ref HubAccount, ':role/TransitNetworkOrchestratorSMLambdaRole', '-', !Ref 'AWS::Region']]
+                - !Join ['', ['arn:aws:iam::', !Ref HubAccount, ':role/tgw-sm-lambda', '-', !Ref 'AWS::Region']]
             Action:
               - sts:AssumeRole
       Policies:
