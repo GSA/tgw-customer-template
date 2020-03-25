@@ -35,7 +35,7 @@ Metadata:
 Mappings:
   EventBridge:
     Bus:
-      Name: "STNO-EventBridge"
+      Name: "tgw-eventbridge"
 
 Conditions:
   # Adding an EventBus as a target within an account is not allowed.
