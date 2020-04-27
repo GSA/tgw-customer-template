@@ -44,8 +44,8 @@ Select Next to continue.
 * Name your stack something that you will be able to remember and easily associate with this project.
 
 * Enter the following AWS Account number for Network (Hub) Account parameter:
-456746392885
-Example:
+
+***Example:***
 
 ![Hub Account](images/image14.png)
 
@@ -68,7 +68,7 @@ Tag:
   Key: Attach-to-tgw
   Value: NA
 ```
-  * Example:
+***Example:***
 
 ![Required tag](images/image2.png)
 
