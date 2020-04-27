@@ -2,10 +2,6 @@
 
 This CloudFormation template provides you with everything you need setup the required AWS resources to enable an attachment to the GSA TGW Core.
 
-
-
-
-
 ## Getting Started
 
 ### Download the CloudFormation Template
@@ -26,32 +22,32 @@ Follow these steps to deploy the CloudFormation services and prepare your GSA AW
 * Login to your AWS Account
 * Under services select or search for and then select the CloudFormation Service.
 
-IMG
+![Service](images/image4.png)
 
 * Click the Create Stack button in the upper right hand corner of the console.
   * Be sure to select the With new resources (standard) option.
 
-IMG
+![Create Stack](images/image8.png)
 
-* Under Specify Template select Upload a template file.
+* Under **Specify Template** select Upload a template file.
 
-IMG
+![Upload](images/image1.png)
 
 Select Upload a template file and select the file CloudFormation template you download previously.
 
-IMG
+![Select Upload](images/image6.png)
 
 Select Next to continue.
 
-IMG
+![Next](images/image13.png)
 
 * Name your stack something that you will be able to remember and easily associate with this project.
 
 * Enter the following AWS Account number for Network (Hub) Account parameter:
-456746392885
-Example:
 
-IMG
+***Example:***
+
+![Hub Account](images/image14.png)
 
 * Click next to continue and next again to accept defaults on the next screen titled  “Configure stack options”.
 
@@ -72,7 +68,9 @@ Tag:
   Key: Attach-to-tgw
   Value: NA
 ```
-  * Example:
+***Example:***
+
+![Required tag](images/image2.png)
 
 * Under the Transit Gateway section of the  service VPC you will see the GSA Transit Gateway with a status of available.
 
