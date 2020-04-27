@@ -9,7 +9,8 @@ This CloudFormation template provides you with everything you need setup the req
 To get started you will need to down the CloudFormation template that will configure all of the necessary services and policies to connect to the GSA Transit Gateway.
 
 Follow the link provided below to download and unzip the CloudFormation Template required to deploy the GSA Transit Gateway for your AWS VPC.
-Link to Zip: TGW Customer CloudFormation Template
+
+**Link to Zip:** [TGW Customer CloudFormation Template](https://github.com/GSA/tgw-customer-template/archive/v1.0.0.0.zip)
 
 * Navigate to where you downloaded the zip file and extract the zip.
 * From the directory where you extracted the zip file navigate to tgw-customer-template-1.0.0 directory as this is where the file you will be uploading in the following steps is located.
